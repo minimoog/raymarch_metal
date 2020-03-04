@@ -12,6 +12,7 @@ import MetalKit
 class ViewController: UIViewController, MTKViewDelegate {
     var commandQueue: MTLCommandQueue? = nil
     var startTime: Double = CACurrentMediaTime()
+    var computePipelaneState: MTLComputePipelineState?
     
     @IBOutlet weak var mtkView: MTKView! {
         didSet {
@@ -28,6 +29,7 @@ class ViewController: UIViewController, MTKViewDelegate {
         mtkView.device = MTLCreateSystemDefaultDevice()
         commandQueue = mtkView.device?.makeCommandQueue()
         
+        computePipelaneState = loadShader()
     }
 
     func loadShader() -> MTLComputePipelineState? {
@@ -41,8 +43,24 @@ class ViewController: UIViewController, MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
+        guard let drawable = view.currentDrawable else { return }
+        
         let currentTime = CACurrentMediaTime()
         let offsetTime = currentTime - startTime
+        
+        let commandBuffer = commandQueue?.makeCommandBuffer()
+        let computeEncoder = commandBuffer?.makeComputeCommandEncoder()
+        //computeEncoder. output
+        
+        let threadGroupCount = MTLSizeMake(8, 8, 1)
+        let threadGroups = MTLSizeMake(drawable.texture.width / threadGroupCount.width, drawable.texture.height / threadGroupCount.height, 1)
+        
+        computeEncoder?.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
+        
+        computeEncoder?.endEncoding()
+        
+        commandBuffer?.present(drawable)
+        commandBuffer?.commit()
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {

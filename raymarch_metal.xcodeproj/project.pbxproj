@@ -13,6 +13,7 @@
 		CD3FCEC6240F1EF8000AFD7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3FCEC4240F1EF8000AFD7C /* Main.storyboard */; };
 		CD3FCEC8240F1EFA000AFD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3FCEC7240F1EFA000AFD7C /* Assets.xcassets */; };
 		CD3FCECB240F1EFA000AFD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3FCEC9240F1EFA000AFD7C /* LaunchScreen.storyboard */; };
+		CD4065A9241069B7008AB2C3 /* compute_raymarch.metal in Sources */ = {isa = PBXBuildFile; fileRef = CD4065A8241069B7008AB2C3 /* compute_raymarch.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD3FCEC7240F1EFA000AFD7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3FCECA240F1EFA000AFD7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3FCECC240F1EFA000AFD7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD4065A8241069B7008AB2C3 /* compute_raymarch.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = compute_raymarch.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CD3FCEC7240F1EFA000AFD7C /* Assets.xcassets */,
 				CD3FCEC9240F1EFA000AFD7C /* LaunchScreen.storyboard */,
 				CD3FCECC240F1EFA000AFD7C /* Info.plist */,
+				CD4065A8241069B7008AB2C3 /* compute_raymarch.metal */,
 			);
 			path = raymarch_metal;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				CD3FCEC3240F1EF8000AFD7C /* ViewController.swift in Sources */,
 				CD3FCEBF240F1EF8000AFD7C /* AppDelegate.swift in Sources */,
+				CD4065A9241069B7008AB2C3 /* compute_raymarch.metal in Sources */,
 				CD3FCEC1240F1EF8000AFD7C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
